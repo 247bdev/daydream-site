@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import Main from "../layouts/Main.astro";
+import showfull from "../../public/images/show-full.png";
+import s2 from "../../public/images/s2.png";
+import s3 from "../../public/images/s3.png";
+import s4 from "../../public/images/s4.png";
+import s5 from "../../public/images/s5.png";
+---
+
+<Main>
+  <div class="bg-black">
+    <div class="container mx-auto px-5 md:px-0 py-4">
+      <h1
+        class="text-blue-500 text-5xl pb-6 font-[MoriSB] text-center pt-4"
+        transition:name="showcase-txt"
+      >
+        Showcase
+      </h1>
+      <div class="shower skewer">
+        <Image src={showfull} alt="wjd" transition:name="showcase-img" />
+        <Image src={s2} alt="wjd" class="rounded-2xl" />
+        <Image src={s3} alt="wjd" class="rounded-2xl" />
+        <Image src={s4} alt="wjd" class="rounded-2xl" />
+        <Image src={s5} alt="wjd" class="rounded-2xl" />
+      </div>
+    </div>
+  </div>
+</Main>
+
+<style>
+  .shower {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+    justify-content: center;
+    align-items: top;
+  }
+</style>

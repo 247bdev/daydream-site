@@ -1,0 +1,42 @@
+---
+import Card from "../components/Card.astro";
+import img1 from "../../public/images/1.png";
+import img2 from "../../public/images/2.png";
+import img3 from "../../public/images/3.png";
+import img4 from "../../public/images/4.png";
+import img5 from "../../public/images/5.png";
+const data = [
+  "Images,Videos & YT",
+  "Customisable",
+  "Powerful controls",
+  "One click away",
+  "Go fullscreen",
+];
+---
+
+<div class="bg-gray-950 py-6">
+  <div class="container mx-auto px-6">
+    <div>
+      <h1 class="text-blue-500 font-[MoriSB] text-3xl pb-7 text-center">
+        Features
+      </h1>
+    </div>
+    <div class="card-container">
+      <Card src={img1} alt={"jn"} data={data[0]} />
+      <Card src={img2} alt={"jn"} data={data[1]} />
+      <Card src={img3} alt={"jn"} data={data[2]} />
+      <Card src={img4} alt={"jn"} data={data[3]} />
+      <Card src={img5} alt={"jn"} data={data[4]} />
+    </div>
+  </div>
+</div>
+
+<style>
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+    justify-content: center;
+    align-items: top;
+  }
+</style>

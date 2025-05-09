@@ -1,0 +1,69 @@
+---
+import "./src/styles/global.css";
+let { title } = Astro.props;
+import { ClientRouter } from "astro:transitions";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body class="relative">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  body {
+    background-color: black;
+  }
+  @font-face {
+    font-family: MoriR;
+    src: url(/fonts/mori-r.woff2);
+  }
+  @font-face {
+    font-family: MoriSB;
+    src: url(/fonts/mori-sb.woff2);
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const box = document.querySelectorAll(".skewer");
+
+  if (box) {
+    let proxy = { skew: 0 };
+    const skewSetter = gsap.quickSetter(box, "skewY", "deg");
+
+    gsap.set(box, {
+      transformOrigin: "center center",
+      force3D: true,
+    });
+
+    ScrollTrigger.create({
+      onUpdate: (self) => {
+        const velocity = self.getVelocity();
+        const skew = gsap.utils.clamp(-20, 20, velocity / -1300);
+
+        if (Math.abs(skew) > Math.abs(proxy.skew)) {
+          proxy.skew = skew;
+          gsap.to(proxy, {
+            skew: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            overwrite: true,
+            onUpdate: () => skewSetter(proxy.skew),
+          });
+        }
+      },
+    });
+  }
+</script>

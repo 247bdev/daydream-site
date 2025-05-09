@@ -1,0 +1,23 @@
+---
+let { src, alt, data } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<div class="rounded-2xl border-amber-50 border-r skewer cards">
+  <Image class="imgt" src={src} alt={alt} />
+  <h2
+    class="text-2xl font-bold font-[MoriR] text-amber-100 py-2 px-1.5 text-center"
+  >
+    {data}
+  </h2>
+</div>
+
+<style>
+  div {
+    border-width: 3px;
+  }
+  .imgt {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+  }
+</style>
