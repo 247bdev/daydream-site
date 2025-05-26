@@ -1,7 +1,19 @@
 {
-  "name": "",
-  "type": "module",
+  "name": "daydreamsite",
   "version": "0.0.1",
+  "description": "```sh pnpm create astro@latest -- --template minimal ```",
+  "homepage": "https://github.com/247bdev/daydream-site#readme",
+  "bugs": {
+    "url": "https://github.com/247bdev/daydream-site/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/247bdev/daydream-site.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
   "scripts": {
     "dev": "astro dev --host",
     "build": "astro build",
@@ -17,5 +29,6 @@
     "tailwind-variants": "^1.0.0",
     "tailwindcss": "^4.1.5",
     "tw-animate-css": "^1.2.9"
-  }
+  },
+  "devDependencies": {}
 }
